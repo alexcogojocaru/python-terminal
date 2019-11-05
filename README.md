@@ -8,3 +8,5 @@ and hash folder/file names.</p>
 <ul>
   <li>ascii art : https://github.com/sepandhaghighi/art</li>
 </ul>
+
+<p>Use "python Main.py" to run the script</p>
