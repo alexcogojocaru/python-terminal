@@ -7,7 +7,7 @@ from art import art
 
 art.tprint("Terminal Python")
 
-terminal = Terminal("C:\\Users\\alexc\\Desktop")
+terminal = Terminal()
 folder = Folder()
 file = File()
 
