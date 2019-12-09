@@ -9,4 +9,4 @@ and hash folder/file names.</p>
   <li>ascii art : https://github.com/sepandhaghighi/art</li>
 </ul>
 
-<p>Use "python Main.py" to run the script</p>
+<p>Use "python main.py" to run the script</p>
