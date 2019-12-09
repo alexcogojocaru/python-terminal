@@ -41,10 +41,8 @@ class Folder:
 
     def removeFolderFile(self, name):
         if name[0] == '*':
-            # fileName, fileExtension = os.path.splitext(os.path.join(self.__path, name))
-
             for file in os.listdir(self.__path):
-                fileName, fileExtension = os.path.splitext(os.path.join(self.__path, file))
+                fileExtension = os.path.splitext(os.path.join(self.__path, file))[1]
 
                 if fileExtension == name[1:]:
                     os.remove(os.path.join(self.__path, file))
