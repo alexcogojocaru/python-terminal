@@ -1,16 +1,19 @@
 import os
+import win32api
 
 
-def isPath(path):
-    if '\\' in path:
-        return True
-    return False
+drives = win32api.GetLogicalDriveStrings()
+drives = drives.split('\000')[:-1]
+drivesList = list()
 
+for x in drives:
+    drivesList.append(x[:-1] + '\\')
+    
 
 class Terminal:
     def __init__(self, basePath=None):
         if basePath is None:
-            self.__path = "C:\\"
+            self.__path = drivesList[0]
         else:
             self.__path = basePath
 
@@ -35,7 +38,7 @@ class Terminal:
         print('Current path: ' + self.__path)
 
     def changePath(self, pathName):
-        if isPath(pathName):
+        if os.path.exists(os.path.join(self.__path, pathName)): 
             self.__path = os.path.join(self.__path, pathName)
             return
 
@@ -52,7 +55,7 @@ class Terminal:
             print(pathName + ' does not exist')
 
     def backPath(self):
-        if self.__path == "C:\\" or self.__path == "D:\\":
+        if self.__path in drivesList:
             return
 
         i = -1
@@ -61,4 +64,4 @@ class Terminal:
                 break
             else:
                 i = i - 1
-        self.__path = self.__path[:(i + 1)]
+        self.__path = self.__path[:(i)]
