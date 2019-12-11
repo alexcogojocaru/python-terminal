@@ -1,11 +1,12 @@
 import hashlib
 import os
+from drives import *
 
 
 class Folder:
     def __init__(self, path=None):
         if path is None:
-            self.__path = "C:/"
+            self.__path = getDrives()[0]
         else:
             self.__path = path
 
