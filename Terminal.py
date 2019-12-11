@@ -1,19 +1,11 @@
 import os
-import win32api
-
-
-drives = win32api.GetLogicalDriveStrings()
-drives = drives.split('\000')[:-1]
-drivesList = list()
-
-for x in drives:
-    drivesList.append(x[:-1] + '\\')
+from drives import *
     
 
 class Terminal:
     def __init__(self, basePath=None):
         if basePath is None:
-            self.__path = drivesList[0]
+            self.__path = getDrives()[0]
         else:
             self.__path = basePath
 
@@ -55,7 +47,7 @@ class Terminal:
             print(pathName + ' does not exist')
 
     def backPath(self):
-        if self.__path in drivesList:
+        if self.__path in getDrives():
             return
 
         i = -1
