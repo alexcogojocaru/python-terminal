@@ -60,3 +60,5 @@ class Folder:
                 os.rmdir(os.path.join(self.__path, name))
             except FileNotFoundError:
                 print(name + ' does not exist')
+            except OSError:
+                print('Couldn\'t remove folder ' + name)
