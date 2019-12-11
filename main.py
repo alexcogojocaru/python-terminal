@@ -1,3 +1,4 @@
+import os
 from CommandFunctions import *
 from Terminal import Terminal
 from Folder import Folder
@@ -8,7 +9,6 @@ from art import art
 terminal = Terminal()
 folder = Folder()
 file = File()
-
 
 def run():
     while True:
@@ -72,6 +72,9 @@ def run():
                 print('\tInvalid syntax\n\tshow [-fileName]')
             else:
                 file.show(stringList[1])
+        
+        elif stringList[0] == 'clear':
+            os.system('cls')    
 
         else:
             print('Command unknown')
