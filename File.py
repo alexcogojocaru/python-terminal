@@ -1,4 +1,5 @@
 import os
+from drives import *
 
 
 def getFileName(filePath):
@@ -19,7 +20,7 @@ def getFileName(filePath):
 class File:
     def __init__(self, path=None):
         if path is None:
-            self.__path = "C:\\"
+            self.__path = getDrives()[0]
         else:
             self.__path = path
 
